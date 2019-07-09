@@ -20,104 +20,111 @@
   <!--Chart.js-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"
     integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
-<!-- //Font -->
-<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Poiret+One&display=swap" rel="stylesheet">
+  <!-- //Font -->
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Poiret+One&display=swap" rel="stylesheet">
+
 <body>
   <main>
 
     <!-- //Welcome Modal -->
-      <div class="modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Welcome</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>Modal body text goes here.</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Ready To Get Mindful?</button>
-              </div>
-            </div>
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Welcome</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Ready To Get Mindful?</button>
           </div>
         </div>
-    <!-- //Timer Modal -->
-        <div class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Select A Time</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-<!-- //quote -->
-     <!-- //Page Content       -->
-<div id="mainSection">
-
-  <div class="container text-center">
-
-    <div class="row" id="buttonsContainer">
-
-      <div class="col-sm-4">
-        <div class="startBtn">
-          <img id="start" src="assets/img/play.png">
-        </div>
-        <p id="textBtn">Press this button when you are ready to begin.</p>
       </div>
-
-      <div class="col-sm-4">
-        <div class="pauseBtn">
-          <img id="pause" src="assets/img/pause.png">
-        </div>
-      </div>
-
-      <div class="col-sm-4">
-        <div class="stopBtn">
-          <img id="stop" src="assets/img/stop.png">
-        </div>
-      </div>
-
     </div>
-  </div>
-</div>
-<!-- //weather -->
-    <!-- //Finished Modal -->
-          <div class="modal" tabindex="-1" role="dialog">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">You're Done!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Modal body text goes here.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- //Timer Modal -->
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Select A Time</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //quote -->
+    <div class="quote-div">
+      <p id="quote"></p>
+      <p id="author"></p>
+    </div>
+    <div class="btn-container">
+      <button class="btn btn-success" id="quoteButton">Random Quote</button>
+    </div>
+    <!-- //Page Content       -->
+    <div id="mainSection">
 
-<footer> Copyright Emily, Angela, Yuka</footer>
+      <div class="container text-center">
+        <div class="row" id="buttonsContainer">
+
+          <div class="col-sm-4">
+            <div class="startBtn">
+              <img id="start" src="assets/img/play.png">
+            </div>
+            <p id="textBtn">Press this button when you are ready to begin.</p>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="pauseBtn">
+              <img id="pause" src="assets/img/pause.png">
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div class="stopBtn">
+              <img id="stop" src="assets/img/stop.png">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- //weather -->
+    <!-- //Finished Modal -->
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">You're Done!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer> Copyright Emily, Angela, Yuka</footer>
   </main>
   <!--Javascript-->
   <script src="assets/app.js"></script>
