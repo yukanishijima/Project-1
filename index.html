@@ -103,6 +103,24 @@
       </div>
     </div>
     <!-- //weather -->
+
+    <form id="location-form">
+      <label for="location-input">Enter current location</label>
+      <input type="text" id="location-input"><br>
+
+      <!-- Button triggers new movie to be added -->
+      <input id="add-city" type="submit" value="Submit">
+    </form>
+
+
+    <!-- Retrieved data will be dumped here -->
+    <div class="city"></div>
+    <div class="current-temp"></div>
+    <div class="max-temp"></div>
+    <div class="min-temp"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="weather.js"></script>
     <!-- //Finished Modal -->
     <div class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
