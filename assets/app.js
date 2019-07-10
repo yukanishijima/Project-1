@@ -1,8 +1,9 @@
-
+//welcome modal function
 $(document).ready(function () {
   $("#welcomeModal").modal("show");
 });
 
+//timer modal function
 $("#startBtn").on("click", function () {
   if ($("#userName").val().length !== 0) {
     $("#timerModal").modal("show");
@@ -14,6 +15,8 @@ $("#startBtn").on("click", function () {
 $("#customizeBtn").on("click", function () {
   $("#customizeTime").show();
 });
+
+$("#customezeTime")
 
 // Create quote function
 function quote() {
