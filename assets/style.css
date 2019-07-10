@@ -3,6 +3,10 @@ body {
     height: 100%;
     font-family: 'Cormorant Garamond', serif;
 }
+img{
+    height: 150px;
+    width: 150px;
+}
 footer{
     clear: both;
     position: fixed;
