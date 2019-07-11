@@ -13,10 +13,8 @@ $("#startBtn").on("click", function () {
 });
 
 $("#customizeBtn").on("click", function () {
-  $("#customizeTime").show();
+  $("#customizeTime").toggle();
 });
-
-$("#customezeTime")
 
 // Create quote function
 function quote() {

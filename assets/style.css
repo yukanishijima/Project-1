@@ -18,3 +18,48 @@ footer{
     height: 40px;
     background:#43484c85;
 }
+
+/* modal styles 
+----------------------------------------------- */
+.modal-content {
+    text-align: center;
+    padding: 30px;
+    font-family: 'Cormorant Garamond', serif;
+}
+.modal-title p {
+    margin: 0;
+}
+#my-modal-body {
+    padding: 30px;
+}
+#customizeTime {
+    margin: 40px 0;
+}
+#hour, #minute, #second, #submitBtn {
+    width: auto;
+    display: inline;
+}
+#minuteBtn1, #minuteBtn2, #minuteBtn3, #customizeBtn {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    border-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.05);
+}
+#minuteBtn1:hover, #minuteBtn2:hover, #minuteBtn3:hover, #customizeBtn:hover {
+    background-color: rgba(128, 128, 128, 0.2);   
+}
+#minuteBtn1:focus, #minuteBtn2:focus, #minuteBtn3:focus, #customizeBtn:focus {
+    background-color: rgba(128, 128, 128, 0.5);   
+}
+.backBtn {
+    background: none;
+    border: none;
+    color: rgb(108, 117, 125);
+}
+.backBtn:hover {
+    color: black;
+}

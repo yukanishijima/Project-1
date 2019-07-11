@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <!-- //ajax  -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -34,62 +34,186 @@
   <!-- //Font -->
   <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Poiret+One&display=swap" rel="stylesheet">
   <!-- //Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 <body>
   <main>
 
     <!-- //Welcome Modal -->
-    <div class="modal" tabindex="-1" role="dialog" id="welcomeModal">
+    <div class="modal" tabindex="-1" role="dialog" id="welcomeModal" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Ready To Get Mindful?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
+          <h5 class="modal-title">Ready To Get Mindful?</h5>
+          <div class="modal-body" id="my-modal-body">
             <form>
               <input type="text" placeholder="Type your name" id="userName">
-              <button type="button" id="startBtn" class="btn btn-primary">Start</button>
+              <input type="button" value="Start" id="startBtn" class="btn btn-primary">
             </form>
-          </div>
-          <div class="modal-footer">
           </div>
         </div>
       </div>
     </div>
     <!-- //Timer Modal -->
-    <div class="modal" tabindex="-1" role="dialog" id="timerModal">
+    <div class="modal" tabindex="-1" role="dialog" id="timerModal" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalMsg"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <button id="">1 Minute</button>
-            <button id="">5 Minutes</button>
-            <button id="">10 Minutes</button>
+          <h5 class="modal-title" id="modalMsg"></h5>
+          <div class="modal-body" id="my-modal-body">
+            <button id="minuteBtn1">1 Min</button>
+            <button id="minuteBtn2">5 Mins</button>
+            <button id="minuteBtn3">10 Mins</button>
             <button id="customizeBtn">Customize</button>
-            <div id="customizeTime">
-              <form>
-                <input type="text" placeholder="Type a time" id="userTime">
-                <button type="button" id="submitBtn" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
+
+            <form id="customizeTime">
+              <select class="form-control" id="hour">
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+              </select>
+              <label for="hour">Hour</label>
+              <select class="form-control" id="minute">
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+                <option>60</option>
+              </select>
+              <label for="minute">Minute</label>
+              <select class="form-control" id="second">
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+                <option>45</option>
+                <option>46</option>
+                <option>47</option>
+                <option>48</option>
+                <option>49</option>
+                <option>50</option>
+                <option>51</option>
+                <option>52</option>
+                <option>53</option>
+                <option>54</option>
+                <option>55</option>
+                <option>56</option>
+                <option>57</option>
+                <option>58</option>
+                <option>59</option>
+                <option>60</option>
+              </select>
+              <label for="second">Second</label>
+              <input type="button" value="Submit" id="submitBtn" class="btn btn-primary">
+            </form>
           </div>
+
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+            <button type="button" class="backBtn" data-dismiss="modal">&larr; Back</button>
           </div>
+
         </div>
       </div>
     </div>
-    
-        <!-- //Finished Modal -->
+
+    <!-- //Finished Modal -->
     <div class="modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -109,7 +233,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- //quote -->
     <div class="quote-div">
       <p id="quote"></p>
