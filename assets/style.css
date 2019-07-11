@@ -24,15 +24,18 @@ i{
    color:#0b3b6fa6;
    opacity: 0.7;
 }
-h3{
-    margin-top: 150px;
-    margin-left: 110px;
-    font-family: 'Kalam', cursive;
-}
-#location-form{
-    margin-top: 30px;
+.weatherTittle{
+
     margin-left: 60px;
     font-family: 'Kalam', cursive;
+    font-size: 25px;
+    text-align: left;
+}
+#location-form{
+    margin-top: 20px;
+    margin-left: 60px;
+    font-family: 'Kalam', cursive;
+    text-align: left;
 }
 
 footer{
