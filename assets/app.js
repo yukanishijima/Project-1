@@ -24,27 +24,33 @@ $("#submitBtn").on("click", function () {
 
 // Create quote function
 function quote() {
-  $.ajax({
-    url: "https://api.forismatic.com/api/1.0/",
-    jsonp: "jsonp",
-    dataType: "jsonp",
-    data: {
-      method: "getQuote",
-      lang: "en",
-      format: "jsonp"
-    },
-    success: function (response) {
-      $('#quote').html(response.quoteText)
-      $('#author').html("<br/>&dash; " + response.quoteAuthor)
-
-    }
+    $.ajax ({
+      url: "https://api.forismatic.com/api/1.0/",
+      jsonp: "jsonp",
+      dataType: "jsonp",
+      data: {
+        method: "getQuote",
+        lang: "en",
+        format: "jsonp"
+      },
+      success: function(response) {
+        $('#quote').html(response.quoteText)
+        $('#author').html("<br/>&dash; " + response.quoteAuthor)
+  
+      }
+    });
+  }
+  
+  $("#quoteButton").on("click", function() {
+  
+    quote();
   });
-}
 
-$("#quoteButton").on("click", function () {
+// $("#quoteButton").on("click", function () {
+//     console.log("quote!")
 
-  quote();
-});
+//   quote();
+// });
 
 // Create function for weather api 
 
@@ -80,4 +86,4 @@ $("#add-city").on("click", function (event) {
             $(".max-temp").html("<h4>Today's High (C): " + response.main.temp_max + "&#8451;</h4>");
             $(".min-temp").html("<h4>Today's Low (C): " + response.main.temp_min + "&#8451;</h4>");
 
-        });
+        })});
