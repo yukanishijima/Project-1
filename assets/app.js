@@ -7,6 +7,7 @@ $(document).ready(function () {
 $("#startBtn").on("click", function () {
   if ($("#userName").val().length !== 0) {
     $("#timerModal").modal("show");
+    $("#welcomeModal").modal("hide");
     $("#customizeTime").hide();
     $("#modalMsg").html("<p>Welcome " + $("#userName").val() + ", select a time!</p>");
   }
@@ -14,6 +15,11 @@ $("#startBtn").on("click", function () {
 
 $("#customizeBtn").on("click", function () {
   $("#customizeTime").toggle();
+});
+
+$("#submitBtn").on("click", function () {
+  $("#timerModal").modal("hide");
+  $("#welcomeModal").modal("hide");
 });
 
 // Create quote function
