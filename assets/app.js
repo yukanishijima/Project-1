@@ -24,130 +24,66 @@ $("#submitBtn").on("click", function () {
 
 // Create quote function
 function quote() {
-  $.ajax({
-    url: "https://api.forismatic.com/api/1.0/",
-    jsonp: "jsonp",
-    dataType: "jsonp",
-    data: {
-      method: "getQuote",
-      lang: "en",
-      format: "jsonp"
-    },
-    success: function (response) {
-      $('#quote').html(response.quoteText)
-      $('#author').html("<br/>&dash; " + response.quoteAuthor)
-
-    }
+    $.ajax ({
+      url: "https://api.forismatic.com/api/1.0/",
+      jsonp: "jsonp",
+      dataType: "jsonp",
+      data: {
+        method: "getQuote",
+        lang: "en",
+        format: "jsonp"
+      },
+      success: function(response) {
+        $('#quote').html(response.quoteText)
+        $('#author').html("<br/>&dash; " + response.quoteAuthor)
+  
+      }
+    });
+  }
+  
+  $("#quoteButton").on("click", function() {
+  
+    quote();
   });
-}
 
-$("#quoteButton").on("click", function () {
+// $("#quoteButton").on("click", function () {
+//     console.log("quote!")
 
-  quote();
-});
+//   quote();
+// });
 
-// //Functions for Play,Pause, Stop
-// var intervalID;
+// Create function for weather api 
 
-// //function for 1 minute selection
-// var number= 1;
-
-//    function minuteBtn1(){
-//    clearInterval(intervalID);
-//    intervalID = setInterval(decrement, 60000);}
-
-//    function decrement(){
-//     number--;
-//     console.log(number)
-//     if ( number === 0){
-//       stop();
-//      }
-//     }
-// //function for 5 minute selection 
-// var timer5= 5;
-// //function for 10 minute selection
-// var timer10= 10;
-
-// //Play Button
-// $(".BeginBtn").on("click", function(){
-
-//   if ("#minuteBtn1"){
-//     minuteBtn1()
-//   }
-//   console.log("playbutton");
-// })
-// //Pause Button
-
-// function RecurringTimer(callback, delay) {
-//   var timerId, start, remaining = delay;
-
-//   this.pause = function() {
-//       window.clearTimeout(timerId);
-//       remaining -= new Date() - start;
-//   };
-
-//   var resume = function() {
-//       start = new Date();
-//       timerId = window.setTimeout(function() {
-//           remaining = delay;
-//           resume();
-//           callback();
-//       }, remaining);
-//   };
-
-//   this.resume = resume;
-
-//   this.resume();
-// }
-// //Stop Function
-// function stop (){
-//   clearInterval(intervalID)
-// }
-// //Timeut Function
-// function timeout(){
-
-//   clearInterval(intervalID)
-
-// }
-// //Stop Button/Timeout
-
-
-
-
-
-
-// Create function for weather status
 $("#add-city").on("click", function (event) {
 
-  event.preventDefault();
+    event.preventDefault();
 
-  let location = $("#location-input").val().trim();
+    let location = $("#location-input").val().trim();
 
-  var APIKey = "d15b9c0cdc5ef1799aacbfc05974ff66";
+    var APIKey = "d15b9c0cdc5ef1799aacbfc05974ff66";
 
-  // Here we are building the URL we need to query the database
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
-    location + "&units=metric&appid=" + APIKey;
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +
+        location + "&units=metric&appid=" + APIKey;
 
-  // Here we run our AJAX call to the OpenWeatherMap API
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-    // We store all of the retrieved data inside of an object called "response"
-    .then(function (response) {
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+        // We store all of the retrieved data inside of an object called "response"
+        .then(function (response) {
 
-      // Log the queryURL
-      console.log(queryURL);
+            // Log the queryURL
+            console.log(queryURL);
 
-      // Log the resulting object
-      console.log(response);
+            // Log the resulting object
+            console.log(response);
 
-      // Transfer content to HTML
-      $(".city").html("<h1>" + response.name + " Weather </h1>");
-      $(".current-temp").text("Current Temperature (C): " + response.main.temp);
-      $(".max-temp").text("Today's High (C): " + response.main.temp_max);
-      $(".min-temp").text("Today's Low (C): " + response.main.temp_min);
+            // Transfer content to HTML
+            $(".city").html("<h1>" + response.name + " Weather </h1>");
+            $(".current-temp").html("<h4>Current Temperature (C): " + response.main.temp + "&#8451;</h4>");
+            $(".max-temp").html("<h4>Today's High (C): " + response.main.temp_max + "&#8451;</h4>");
+            $(".min-temp").html("<h4>Today's Low (C): " + response.main.temp_min + "&#8451;</h4>");
 
-    });
-});
+        })});
