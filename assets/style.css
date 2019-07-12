@@ -32,6 +32,7 @@ i{
     text-align: left;
 }
 #location-form{
+    position: fixed;
     margin-top: 20px;
     margin-left: 60px;
     font-family: 'Kalam', cursive;
