@@ -140,7 +140,7 @@ function stop() {
 };
 
 function pause() {
-  clearTimeout(intervalID);
+  clearInterval(intervalID);
   userTime = number;
   console.log("after pause: " + number);
 }
