@@ -1,26 +1,107 @@
-//welcome modal function
 $(document).ready(function () {
   $("#welcomeModal").modal("show");
 });
 
-//timer modal function
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyCM-FDklynhgyxsuprIgI_Nd5f0RrBAJfk",
+  authDomain: "get-mindful.firebaseapp.com",
+  databaseURL: "https://get-mindful.firebaseio.com",
+  projectId: "get-mindful",
+  storageBucket: "",
+  messagingSenderId: "714912023665",
+  appId: "1:714912023665:web:918d3042e7ba2251"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var db = firebase.database();
+var userName;
+var userTime;
+
+// welcome modal function
 $("#startBtn").on("click", function () {
-  if ($("#userName").val().length !== 0) {
+  event.preventDefault();
+  userName = $("#userName").val();
+
+  if (userName.length !== 0) {
     $("#timerModal").modal("show");
     $("#welcomeModal").modal("hide");
     $("#customizeTime").hide();
-    $("#modalMsg").html("<p>Welcome " + $("#userName").val() + ", select a time!</p>");
+    $("#modalMsg").html("<p>Welcome " + userName + ", select a time!</p>");
+
+    db.ref().set({
+      name: userName
+    });
   }
+});
+
+// timer modal function
+$("#minuteBtn1").on("click", function (event) {
+  event.preventDefault();
+
+  $("#timerModal").modal("hide");
+  $("#welcomeModal").modal("hide");
+
+  userTime = $("#minuteBtn1").attr("val") * 10000;
+  db.ref().update({
+    time: userTime,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
+});
+
+$("#minuteBtn2").on("click", function (event) {
+  event.preventDefault();
+
+  $("#timerModal").modal("hide");
+  $("#welcomeModal").modal("hide");
+
+  userTime = $("#minuteBtn2").attr("val") * 10000;
+  db.ref().update({
+    time: userTime,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
+});
+
+$("#minuteBtn3").on("click", function (event) {
+  event.preventDefault();
+
+  $("#timerModal").modal("hide");
+  $("#welcomeModal").modal("hide");
+
+  userTime = $("#minuteBtn3").attr("val") * 10000;
+  db.ref().update({
+    time: userTime,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
 });
 
 $("#customizeBtn").on("click", function () {
   $("#customizeTime").toggle();
 });
 
-$("#submitBtn").on("click", function () {
+$("#submitBtn").on("click", function (event) {
+  event.preventDefault();
+
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
+
+  var hour = $("#hour").val();
+  var minute = $("#minute").val();
+  var second = $("#second").val();
+
+  userTime = ((hour * 60 * 60) + (minute * 60) + second) * 1000;
+  console.log(userTime);
+
+  db.ref().update({
+    time: userTime,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  });
 });
+
+
+
+
 
 // Create quote function
 function quote() {
