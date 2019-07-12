@@ -86,7 +86,7 @@ $("#submitBtn").on("click", function (event) {
   var minute = $("#minute").val();
   var second = $("#second").val();
 
-  userTime = ((hour * 60 * 60) + (minute * 60) + second) * 1000;
+  userTime = Number((hour * 60 * 60) + (minute * 60) + second);
   console.log(userTime);
 
   db.ref().update({
@@ -97,16 +97,17 @@ $("#submitBtn").on("click", function (event) {
 
 //Functions for Play,Pause, Stop
 var intervalID;
-var number = userTime;
+var number;
 
 function startTimer() {
   number = userTime;
-  console.log(userTime);
+  console.log("after start: " + userTime);
   clearInterval(intervalID);
   intervalID = setInterval(decrement, 1000);
 }
 function decrement() {
   number--;
+  console.log(number);
   if (number === 0) {
     stop();
   }
@@ -117,40 +118,32 @@ $(".BeginBtn").on("click", function () {
   startTimer();
 })
 
-//Stop Function
+//stop button
+$(".stopBtn").on("click", function () {
+  stop();
+})
+
+//pause button
+$(".pauseBtn").on("click", function () {
+  pause();
+})
+
 function stop() {
-  clearInterval(intervalID)
+  clearInterval(intervalID);
+
+  var snapshotUserTime;
+  db.ref().once("value", function (snapshot) {
+    snapshotUserTime = snapshot.val().time;
+    userTime = snapshotUserTime;
+    console.log("after stop: " + userTime);
+  });
+};
+
+function pause() {
+  clearTimeout(intervalID);
+  userTime = number;
+  console.log("after pause: " + number);
 }
-
-// //Timeut Function
-// function timeout() {
-//   clearInterval(intervalID)
-// }
-
-// //Pause Button
-
-// function RecurringTimer(callback, delay) {
-//   var timerId, start, remaining = delay;
-
-//   this.pause = function () {
-//     window.clearTimeout(timerId);
-//     remaining -= new Date() - start;
-//   };
-
-//   var resume = function () {
-//     start = new Date();
-//     timerId = window.setTimeout(function () {
-//       remaining = delay;
-//       resume();
-//       callback();
-//     }, remaining);
-//   };
-
-//   this.resume = resume;
-
-//   this.resume();
-// }
-
 
 // Create quote function
 function quote() {
