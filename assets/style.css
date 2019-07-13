@@ -55,6 +55,7 @@ i{
   font-size: 20px;
   margin-left: 60px;
   color: #0b3b6fa6;
+  margin-bottom: 40px;
 }
 .preWeatherinfo:hover{
  opacity: 1.0;
@@ -64,17 +65,14 @@ i{
   opacity: none;
 } */
 
-footer{
-    clear: both;
-    position: fixed;
-    text-align: center;
-    padding-top: 5px;
+#bottom-footer{
     font-weight: bolder;
     font-family: 'Poiret One', cursive;
-    bottom: 0%;
-    width: 100%;
-    height: 40px;
-    background:#43484c85;
+    /* background:#43484c85; */
+}
+
+#copyright {
+  color:rgba(55, 71, 79,0.88);
 }
 
   /* modal styles
