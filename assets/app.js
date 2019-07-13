@@ -95,6 +95,12 @@ $("#submitBtn").on("click", function (event) {
   });
 });
 
+$(".backBtn").on("click", function (event) {
+  event.preventDefault();
+  $("#timerModal").modal("hide");
+  $("#welcomeModal").modal("show");
+});
+
 //Functions for Play,Pause, Stop
 var intervalID;
 var number;
