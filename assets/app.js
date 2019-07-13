@@ -94,7 +94,21 @@ $("#submitBtn").on("click", function (event) {
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
-
+// Function for Sound
+var audio = document.getElementById("audio");
+function playSound(){
+  
+ 
+  audio.loop =true;
+  audio.play();
+            }
+function stopSound(){
+  audio.pause();
+}
+var gong = document.getElementById("allDone")
+function finished(){
+  audio.play();
+}
 //Functions for Play,Pause, Stop
 var intervalID;
 var number;
@@ -116,20 +130,27 @@ function decrement() {
 //Play Button
 $(".BeginBtn").on("click", function () {
   startTimer();
+  playSound()
+
 })
 
 //stop button
 $(".stopBtn").on("click", function () {
   stop();
+  stopSound();
+
 })
 
 //pause button
 $(".pauseBtn").on("click", function () {
   pause();
+  stopSound();
+
 })
 
 function stop() {
   clearInterval(intervalID);
+  
 
   var snapshotUserTime;
   db.ref().once("value", function (snapshot) {
