@@ -19,6 +19,41 @@ var db = firebase.database();
 var userName;
 var userTime;
 
+var name;
+var timeSpentBeingMindful;
+var listOfNames = [];
+var listOfValues = [];
+
+db.ref().once('value').then(function(snapshot) {
+    console.log(snapshot.val());
+    // function add(snapshot.val().name) {
+    //     let listOfNames = []; 
+    //     for(let i=0; i<listOfNames; i++)
+    //     {
+    //         listOfNames.push(snapshot.val().name);
+    //     }
+    // }
+
+    // function add(snapshot.val().time) {
+    //     let listOfValues = [];
+    //     for(let i=0; i<listOfValues; i++)
+    //     {
+    //         listOfValues.push(snapshot.val().time);
+    //     }
+    // }
+
+
+
+    listOfNames.push(snapshot.val().name);
+    console.log(listOfNames)
+    listOfValues.push(snapshot.val().time);
+    console.log(listOfValues)
+    
+    buildChart(listOfNames, listOfValues);
+    
+});
+
+
 // welcome modal function
 $("#startBtn").on("click", function () {
   event.preventDefault();
@@ -127,11 +162,6 @@ function quote() {
     quote();
   });
 
-// $("#quoteButton").on("click", function () {
-//     console.log("quote!")
-
-//   quote();
-// });
 
 // Create function for weather api 
 
@@ -168,3 +198,42 @@ $("#add-city").on("click", function (event) {
             $(".min-temp").html("<h4>Today's Low (C): " + response.main.temp_min + "&#8451;</h4>");
 
         })});
+
+    // Create chart function 
+    // listOfNames, listOfValues
+function buildChart() {
+
+    var ctx = $('#myChart');
+    var myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: listOfNames,
+            datasets: [{
+                label: 'Time Spent Mindless',
+                data: listOfValues,
+                fill: false,
+                backgroundColor: "light-grey",
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false,
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Minutes',
+                      }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Name'
+                      }
+                }]
+            }
+        }
+    });
+}
