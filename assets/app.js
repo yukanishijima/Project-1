@@ -124,6 +124,7 @@ function decrement() {
   console.log(number);
   if (number === 0) {
     stop();
+    stopSound();
   }
 }
 
