@@ -18,6 +18,7 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
 var userName;
 var userTime;
+var userTimeInSecond;
 
 // var name;
 // var timeSpentBeingMindful;
@@ -27,28 +28,12 @@ var listOfValues = [];
 db.ref().on('child_added', function (snapshot) {
   console.log(snapshot.val().name);
   console.log(snapshot.val().time);
-  // function add(snapshot.val().name) {
-  //     let listOfNames = []; 
-  //     for(let i=0; i<listOfNames; i++)
-  //     {
-  //         listOfNames.push(snapshot.val().name);
-  //     }
-  // }
-
-  // function add(snapshot.val().time) {
-  //     let listOfValues = [];
-  //     for(let i=0; i<listOfValues; i++)
-  //     {
-  //         listOfValues.push(snapshot.val().time);
-  //     }
-  // }
-
-
 
   listOfNames.push(snapshot.val().name);
   console.log(listOfNames)
   listOfValues.push(snapshot.val().time);
   console.log(listOfValues)
+  userTime = snapshot.val().time;
 
   buildChart(listOfNames, listOfValues);
 
@@ -74,7 +59,8 @@ $("#minuteBtn1").on("click", function (event) {
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
 
-  userTime = $("#minuteBtn1").attr("val") * 60;
+  userTime = $("#minuteBtn1").attr("val");  //1
+  userTimeInSecond = parseInt(userTime) * 60;  //60
   db.ref().push({
     name: userName,
     time: userTime
@@ -87,7 +73,8 @@ $("#minuteBtn2").on("click", function (event) {
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
 
-  userTime = $("#minuteBtn2").attr("val") * 60;
+  userTime = $("#minuteBtn2").attr("val");  //5
+  userTimeInSecond = parseInt(userTime) * 60;  //300
   db.ref().push({
     name: userName,
     time: userTime
@@ -100,7 +87,8 @@ $("#minuteBtn3").on("click", function (event) {
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
 
-  userTime = $("#minuteBtn3").attr("val") * 60;
+  userTime = $("#minuteBtn3").attr("val"); //10
+  userTimeInSecond = parseInt(userTime) * 60;  //1000
   db.ref().push({
     name: userName,
     time: userTime
@@ -113,7 +101,6 @@ $(".backBtn").on("click", function (event) {
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("show");
 });
-
 
 // Function for Sound
 var audio = document.getElementById("audio");
@@ -136,8 +123,11 @@ var intervalID;
 var number;
 
 function startTimer() {
-  number = userTime;
-  console.log("after start: " + userTime);
+  number = userTimeInSecond;
+
+  console.log("after start: " + userTime + " min");   //1min
+  console.log("after start: " + userTimeInSecond + " second");  //60second  
+
   clearInterval(intervalID);
   intervalID = setInterval(decrement, 1000);
 }
@@ -154,39 +144,30 @@ function decrement() {
 $(".BeginBtn").on("click", function () {
   startTimer();
   playSound()
-
 })
 
 //stop button
 $(".stopBtn").on("click", function () {
   stop();
   stopSound();
-
 })
 
 //pause button
 $(".pauseBtn").on("click", function () {
   pause();
   stopSound();
-
 })
 
 function stop() {
   clearInterval(intervalID);
-
-
-  var snapshotUserTime;
-  db.ref().once("value", function (snapshot) {
-    snapshotUserTime = snapshot.val().time;
-    userTime = snapshotUserTime;
-    console.log("after stop: " + userTime);
-  });
+  userTimeInSecond = userTime * 60;
+  console.log("after stop: " + userTimeInSecond);
 };
 
 function pause() {
   clearInterval(intervalID);
-  userTime = number;
-  console.log("after pause: " + number);
+  userTimeInSecond = number;
+  console.log("after pause: " + number + "second");
 }
 
 // Create quote function
