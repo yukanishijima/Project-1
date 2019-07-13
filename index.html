@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Let's get mindful!</title>
+  <title>Mindful on the go!</title>
   <!--css-->
   <link rel="stylesheet" type=" text/css" href="assets/style.css">
   <!--jQuery-->
@@ -25,10 +25,7 @@
   <!--firebase-->
   <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
-  <!--Moment.js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"
-    integrity="sha256-I5ZXO8KcMnqNkrXU7baGig70nATYjNDnxxA2d40PcR8=" crossorigin="anonymous"></script>
-  <!--Chart.js-->
+  <!-- Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"
     integrity="sha256-qSIshlknROr4J8GMHRlW3fGKrPki733tLq+qeMCR05Q=" crossorigin="anonymous"></script>
   <!-- //Font -->
@@ -40,7 +37,9 @@
 
 <body>
   <main>
-
+    <!-- //Audio  -->
+    <audio id="audio" src="assets/Beach Waves-SoundBible.com-1024681188 (1).mp3" ></audio>
+    <audio id="allDone" src="assets/Metal_Gong-Dianakc-109711828.mp3" ></audio>
     <!-- //Welcome Modal -->
     <!-- <div class="modal" tabindex="-1" role="dialog" id="welcomeModal" data-backdrop="static">
       <div class="modal-dialog" role="document">
@@ -49,7 +48,7 @@
           <div class="modal-body" id="my-modal-body">
             <form>
               <input type="text" placeholder="Type your name" id="userName">
-              <input type="button" value="Start" id="startBtn" class="btn btn-primary">
+              <input type="submit" value="Start" id="startBtn" class="btn btn-primary">
             </form>
           </div>
         </div>
@@ -73,7 +72,7 @@
               <label for="minute">Minute</label>
               <input class="form-control" id="second">
               <label for="second">Second</label>
-              <input type="button" value="Submit" id="submitBtn" class="btn btn-primary">
+              <input type="submit" value="Submit" id="submitBtn" class="btn btn-primary">
             </form>
           </div>
 
@@ -97,7 +96,11 @@
             </button>
           </div> -->
           <div class="modal-body">
+            
             <canvas id="myChart"></canvas>
+
+            <p>Things Go Better When We Meditate Together! </p>
+
           </div>
           <!-- <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -113,8 +116,9 @@
       <p id="author"></p>
     </div>
     <div class="btn-container">
-      <button class="btn btn-success" id="quoteButton">Something To Mediate On</button>
+      <button id="quoteButton">Click For Something To Mediate On</button>
     </div>
+
     <!-- //Page Content       -->
     <div id="mainSection">
 
@@ -125,7 +129,7 @@
             <div class="BeginBtn">
               <button class="btn"><i class="fas fa-play"></i></button>
             </div>
-            <p id="textBtn">Press this button when you are ready to begin.</p>
+            <p id="textBtn">Press play when you are ready to begin</p>
           </div>
 
           <div class="col-sm-4">
@@ -138,27 +142,32 @@
             <div class="stopBtn">
               <button class="btn"><i class="fas fa-stop"></i></button>
             </div>
-
+            <p id="textBtn">Press stop if you would like to end before the time is up</p>
           </div>
+
         </div>
       </div>
     </div>
     <!-- //weather -->
-    <h3 class="weatherTittle">Can You Meditate Outside Today?</h3>
+    <div class="preWeatherinfo">
+    <h3 class="weatherTittle">Check Here To See If You Can <br> Meditate Outside!</h3>
     <form id="location-form">
-      <label for="location-input">Enter current location</label>
+      <label for="location-input">Enter current City</label>
       <input type="text" id="location-input">
 
       <!-- Button triggers new city  to be added -->
       <input id="add-city" type="submit" value="Submit">
     </form>
+    </div>
 
 
     <!-- Retrieved data will be dumped here -->
+    <div class="weatherInfo">
     <div class="city"></div>
     <div class="current-temp"></div>
     <div class="max-temp"></div>
     <div class="min-temp"></div>
+    </div>
     <!-- //end of weather -->
 
 
