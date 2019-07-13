@@ -94,6 +94,15 @@ $("#submitBtn").on("click", function (event) {
     dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
+
+
+$(".backBtn").on("click", function (event) {
+  event.preventDefault();
+  $("#timerModal").modal("hide");
+  $("#welcomeModal").modal("show");
+});
+
+
 // Function for Sound
 var audio = document.getElementById("audio");
 function playSound(){
@@ -109,6 +118,7 @@ var gong = document.getElementById("allDone")
 function finished(){
   audio.play();
 }
+
 //Functions for Play,Pause, Stop
 var intervalID;
 var number;
