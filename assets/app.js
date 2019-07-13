@@ -58,13 +58,13 @@ $("#minuteBtn1").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
+  $("#userChart").hide();
 
   userTime = $("#minuteBtn1").attr("val");  //1
   userTimeInSecond = parseInt(userTime) * 60;  //60
   db.ref().push({
     name: userName,
     time: userTime
-    // dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
 
@@ -72,6 +72,7 @@ $("#minuteBtn2").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
+  $("#userChart").hide();
 
   userTime = $("#minuteBtn2").attr("val");  //5
   userTimeInSecond = parseInt(userTime) * 60;  //300
@@ -86,6 +87,7 @@ $("#minuteBtn3").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
+  $("#userChart").hide();
 
   userTime = $("#minuteBtn3").attr("val"); //10
   userTimeInSecond = parseInt(userTime) * 60;  //1000
@@ -100,6 +102,7 @@ $(".backBtn").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("show");
+  $("#userChart").hide();
 });
 
 // Function for Sound
@@ -137,6 +140,11 @@ function decrement() {
   if (number === 0) {
     stop();
     stopSound();
+    $(".quote-div").hide();
+    $("#quoteButton").hide();
+    $("#mainSection").hide();
+    $(".preWeatherinfo").hide();
+    $("#userChart").show();
   }
 }
 
@@ -271,5 +279,6 @@ function buildChart() {
     }
   });
 }
+
 
 

@@ -17,11 +17,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
   <!--firebase-->
   <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-database.js"></script>
@@ -63,6 +63,17 @@
             <button val="1" id="minuteBtn1">1 Min</button>
             <button val="5" id="minuteBtn2">5 Mins</button>
             <button val="10" id="minuteBtn3">10 Mins</button>
+            <button id="customizeBtn">Customize</button>
+
+            <form id="customizeTime">
+              <input class="form-control" id="hour">
+              <label for="hour">Hour</label>
+              <input class="form-control" id="minute">
+              <label for="minute">Minute</label>
+              <input class="form-control" id="second">
+              <label for="second">Second</label>
+              <input type="submit" value="Submit" id="submitBtn" class="btn btn-primary">
+            </form>
           </div>
 
           <div class="modal-footer">
@@ -73,30 +84,13 @@
       </div>
     </div>
 
+    <!-- User Meditation Comparison Chart -->
+    <div id="userChart">
 
-    <!-- //Finished Modal -->
-    <div class="modal" tabindex="-1" role="dialog" id="chartModal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">You're Done!</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
+      <h2>All done! Let's see how mindful everyone has been...</h2>
 
-            <canvas id="myChart"></canvas>
+      <canvas id="myChart"></canvas>
 
-            <p>Things Go Better When We Meditate Together! </p>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- //quote -->
@@ -158,7 +152,6 @@
       <div class="min-temp"></div>
     </div>
     <!-- //end of weather -->
-
 
     <footer> Copyright Emily, Angela, Yuka</footer>
   </main>
