@@ -108,30 +108,6 @@ $("#minuteBtn3").on("click", function (event) {
   });
 });
 
-$("#customizeBtn").on("click", function () {
-  $("#customizeTime").toggle();
-});
-
-$("#submitBtn").on("click", function (event) {
-  event.preventDefault();
-  $("#timerModal").modal("hide");
-  $("#welcomeModal").modal("hide");
-
-  var hour = $("#hour").val();
-  var minute = $("#minute").val();
-  var second = $("#second").val();
-
-  userTime = Number((hour * 60 * 60) + (minute * 60) + second);
-  console.log(userTime);
-
-  db.ref().push({
-    name: userName,
-    time: userTime
-    // dateAdded: firebase.database.ServerValue.TIMESTAMP
-  });
-});
-
-
 $(".backBtn").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
