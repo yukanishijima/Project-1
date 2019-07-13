@@ -204,7 +204,7 @@ $("#add-city").on("click", function (event) {
       console.log(response);
 
       // Transfer content to HTML
-      $(".city").html("<h1>" + response.name + " Weather </h1>");
+      $(".city").html("<h3>" + response.name + " Weather </h3>");
       $(".current-temp").html("<h4>Current Temperature (C): " + response.main.temp + "&#8451;</h4>");
       $(".max-temp").html("<h4>Today's High (C): " + response.main.temp_max + "&#8451;</h4>");
       $(".min-temp").html("<h4>Today's Low (C): " + response.main.temp_min + "&#8451;</h4>");
