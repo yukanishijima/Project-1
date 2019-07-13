@@ -24,33 +24,33 @@ var timeSpentBeingMindful;
 var listOfNames = [];
 var listOfValues = [];
 
-db.ref().once('value').then(function(snapshot) {
-    console.log(snapshot.val());
-    // function add(snapshot.val().name) {
-    //     let listOfNames = []; 
-    //     for(let i=0; i<listOfNames; i++)
-    //     {
-    //         listOfNames.push(snapshot.val().name);
-    //     }
-    // }
+db.ref().once('value').then(function (snapshot) {
+  console.log(snapshot.val());
+  // function add(snapshot.val().name) {
+  //     let listOfNames = []; 
+  //     for(let i=0; i<listOfNames; i++)
+  //     {
+  //         listOfNames.push(snapshot.val().name);
+  //     }
+  // }
 
-    // function add(snapshot.val().time) {
-    //     let listOfValues = [];
-    //     for(let i=0; i<listOfValues; i++)
-    //     {
-    //         listOfValues.push(snapshot.val().time);
-    //     }
-    // }
+  // function add(snapshot.val().time) {
+  //     let listOfValues = [];
+  //     for(let i=0; i<listOfValues; i++)
+  //     {
+  //         listOfValues.push(snapshot.val().time);
+  //     }
+  // }
 
 
 
-    listOfNames.push(snapshot.val().name);
-    console.log(listOfNames)
-    listOfValues.push(snapshot.val().time);
-    console.log(listOfValues)
-    
-    buildChart(listOfNames, listOfValues);
-    
+  listOfNames.push(snapshot.val().name);
+  console.log(listOfNames)
+  listOfValues.push(snapshot.val().time);
+  console.log(listOfValues)
+
+  buildChart(listOfNames, listOfValues);
+
 });
 
 
@@ -64,10 +64,6 @@ $("#startBtn").on("click", function () {
     $("#welcomeModal").modal("hide");
     $("#customizeTime").hide();
     $("#modalMsg").html("<p>Welcome " + userName + ", select a time!</p>");
-
-    db.ref().push({
-      name: userName
-    });
   }
 });
 
@@ -78,9 +74,10 @@ $("#minuteBtn1").on("click", function (event) {
   $("#welcomeModal").modal("hide");
 
   userTime = $("#minuteBtn1").attr("val") * 60;
-  db.ref().update({
-    time: userTime,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  db.ref().push({
+    name: userName,
+    time: userTime
+    // dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
 
@@ -90,9 +87,10 @@ $("#minuteBtn2").on("click", function (event) {
   $("#welcomeModal").modal("hide");
 
   userTime = $("#minuteBtn2").attr("val") * 60;
-  db.ref().update({
-    time: userTime,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  db.ref().push({
+    name: userName,
+    time: userTime
+    // dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
 
@@ -102,9 +100,10 @@ $("#minuteBtn3").on("click", function (event) {
   $("#welcomeModal").modal("hide");
 
   userTime = $("#minuteBtn3").attr("val") * 60;
-  db.ref().update({
-    time: userTime,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  db.ref().push({
+    name: userName,
+    time: userTime
+    // dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
 
@@ -124,9 +123,10 @@ $("#submitBtn").on("click", function (event) {
   userTime = Number((hour * 60 * 60) + (minute * 60) + second);
   console.log(userTime);
 
-  db.ref().update({
-    time: userTime,
-    dateAdded: firebase.database.ServerValue.TIMESTAMP
+  db.ref().push({
+    name: userName,
+    time: userTime
+    // dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
 
@@ -140,17 +140,17 @@ $(".backBtn").on("click", function (event) {
 
 // Function for Sound
 var audio = document.getElementById("audio");
-function playSound(){
-  
- 
-  audio.loop =true;
+function playSound() {
+
+
+  audio.loop = true;
   audio.play();
-            }
-function stopSound(){
+}
+function stopSound() {
   audio.pause();
 }
 var gong = document.getElementById("allDone")
-function finished(){
+function finished() {
   audio.play();
 }
 
@@ -196,7 +196,7 @@ $(".pauseBtn").on("click", function () {
 
 function stop() {
   clearInterval(intervalID);
-  
+
 
   var snapshotUserTime;
   db.ref().once("value", function (snapshot) {
@@ -272,47 +272,46 @@ $("#add-city").on("click", function (event) {
       $(".min-temp").html("<h4>Today's Low (C): " + response.main.temp_min + "&#8451;</h4>");
 
 
-        })});
-
-    // Create chart function 
-    // listOfNames, listOfValues
-function buildChart() {
-
-    var ctx = $('#myChart');
-    var myChart = new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: listOfNames,
-            datasets: [{
-                label: 'Time Spent Mindless',
-                data: listOfValues,
-                fill: false,
-                backgroundColor: "light-grey",
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: false,
-                    },
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Minutes',
-                      }
-                }],
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: 'Name'
-                      }
-                }]
-            }
-        }
-    });
-}
-
     })
 });
+
+// Create chart function 
+// listOfNames, listOfValues
+function buildChart() {
+
+  var ctx = $('#myChart');
+  var myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: listOfNames,
+      datasets: [{
+        label: 'Time Spent Mindless',
+        data: listOfValues,
+        fill: false,
+        backgroundColor: "light-grey",
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'Minutes',
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Name'
+          }
+        }]
+      }
+    }
+  });
+}
+
 
