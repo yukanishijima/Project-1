@@ -27,23 +27,6 @@ var listOfValues = [];
 db.ref().on('child_added', function (snapshot) {
   console.log(snapshot.val().name);
   console.log(snapshot.val().time);
-  // function add(snapshot.val().name) {
-  //     let listOfNames = []; 
-  //     for(let i=0; i<listOfNames; i++)
-  //     {
-  //         listOfNames.push(snapshot.val().name);
-  //     }
-  // }
-
-  // function add(snapshot.val().time) {
-  //     let listOfValues = [];
-  //     for(let i=0; i<listOfValues; i++)
-  //     {
-  //         listOfValues.push(snapshot.val().time);
-  //     }
-  // }
-
-
 
   listOfNames.push(snapshot.val().name);
   console.log(listOfNames)
@@ -73,12 +56,12 @@ $("#minuteBtn1").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
+  $("#userChart").hide();
 
   userTime = $("#minuteBtn1").attr("val") * 60;
   db.ref().push({
     name: userName,
     time: userTime
-    // dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
 
@@ -86,6 +69,7 @@ $("#minuteBtn2").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
+  $("#userChart").hide();
 
   userTime = $("#minuteBtn2").attr("val") * 60;
   db.ref().push({
@@ -99,6 +83,7 @@ $("#minuteBtn3").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("hide");
+  $("#userChart").hide();
 
   userTime = $("#minuteBtn3").attr("val") * 60;
   db.ref().push({
@@ -112,6 +97,7 @@ $(".backBtn").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("show");
+  $("#userChart").hide();
 });
 
 
@@ -147,6 +133,11 @@ function decrement() {
   if (number === 0) {
     stop();
     stopSound();
+    $(".quote-div").hide();
+    $("#quoteButton").hide();
+    $("#mainSection").hide();
+    $(".preWeatherinfo").hide();
+    $("#userChart").show();
   }
 }
 
@@ -290,5 +281,6 @@ function buildChart() {
     }
   });
 }
+
 
 
