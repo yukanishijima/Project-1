@@ -95,11 +95,29 @@ $("#submitBtn").on("click", function (event) {
   });
 });
 
+
 $(".backBtn").on("click", function (event) {
   event.preventDefault();
   $("#timerModal").modal("hide");
   $("#welcomeModal").modal("show");
 });
+
+
+// Function for Sound
+var audio = document.getElementById("audio");
+function playSound(){
+  
+ 
+  audio.loop =true;
+  audio.play();
+            }
+function stopSound(){
+  audio.pause();
+}
+var gong = document.getElementById("allDone")
+function finished(){
+  audio.play();
+}
 
 //Functions for Play,Pause, Stop
 var intervalID;
@@ -116,26 +134,34 @@ function decrement() {
   console.log(number);
   if (number === 0) {
     stop();
+    stopSound();
   }
 }
 
 //Play Button
 $(".BeginBtn").on("click", function () {
   startTimer();
+  playSound()
+
 })
 
 //stop button
 $(".stopBtn").on("click", function () {
   stop();
+  stopSound();
+
 })
 
 //pause button
 $(".pauseBtn").on("click", function () {
   pause();
+  stopSound();
+
 })
 
 function stop() {
   clearInterval(intervalID);
+  
 
   var snapshotUserTime;
   db.ref().once("value", function (snapshot) {
@@ -210,7 +236,7 @@ $("#add-city").on("click", function (event) {
       console.log(response);
 
       // Transfer content to HTML
-      $(".city").html("<h1>" + response.name + " Weather </h1>");
+      $(".city").html("<h3>" + response.name + " Weather </h3>");
       $(".current-temp").html("<h4>Current Temperature (C): " + response.main.temp + "&#8451;</h4>");
       $(".max-temp").html("<h4>Today's High (C): " + response.main.temp_max + "&#8451;</h4>");
       $(".min-temp").html("<h4>Today's Low (C): " + response.main.temp_min + "&#8451;</h4>");

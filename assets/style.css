@@ -5,39 +5,64 @@ body {
 }
 .btn-container{
     text-align: center;
-    margin-top: 150px;
+    margin-top: 10px;
 }
 #mainSection{
-    margin-top: 150px;
+    margin-top: 100px;
     font-family: 'Kalam', cursive;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
+}
+.quote-div{
+  font-family: 'Kalam', cursive;
+  margin-top: 50px;
+  text-align: center;
 }
 #quoteButton{
     color: black;
     font-family: 'Kalam', cursive;
     background-color:#0b3b6fa6;
     opacity: 0.7;
-    border: none;
+    border-radius: 5px;
+    padding-top: 3px;
+
 }
 i{
    font-size: 50px;
    color:#0b3b6fa6;
    opacity: 0.7;
 }
+.preWeatherinfo{
+  opacity: 0.2;
+}
 .weatherTittle{
+    margin-left: 60px;
+    font-family: 'Kalam', cursive;
+    font-size: 20px;
+    text-align: left;
+}
 
-    margin-left: 60px;
-    font-family: 'Kalam', cursive;
-    font-size: 25px;
-    text-align: left;
-}
 #location-form{
-    position: fixed;
-    margin-top: 20px;
+    /* position: fixed; */
+    margin-top: 15px;
     margin-left: 60px;
     font-family: 'Kalam', cursive;
     text-align: left;
+  
 }
+.weatherInfo{
+  font-family: 'Kalam', cursive;
+  text-align: left;
+  font-size: 20px;
+  margin-left: 60px;
+  color: #0b3b6fa6;
+}
+.preWeatherinfo:hover{
+ opacity: 1.0;
+
+}
+/* #location-form:hover{
+  opacity: none;
+} */
 
 footer{
     clear: both;
@@ -54,10 +79,14 @@ footer{
 
   /* modal styles
 ----------------------------------------------- */
+#welcomeModal, #timerModal{
+ background-color: rgba(55, 71, 79,0.88);
+}
 .modal-content {
     text-align: center;
     padding: 30px;
     font-family: 'Cormorant Garamond', serif;
+    margin-top: 250px;
   }
 
   .modal-title p {
@@ -70,6 +99,11 @@ footer{
 
   #customizeTime {
     margin: 40px 0;
+  }
+  #startBtn{
+    background:#0b3b6fa6;
+    border: none;
+
   }
 
   #hour,
