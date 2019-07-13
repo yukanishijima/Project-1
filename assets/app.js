@@ -19,13 +19,14 @@ var db = firebase.database();
 var userName;
 var userTime;
 
-var name;
-var timeSpentBeingMindful;
+// var name;
+// var timeSpentBeingMindful;
 var listOfNames = [];
 var listOfValues = [];
 
-db.ref().once('value').then(function (snapshot) {
-  console.log(snapshot.val());
+db.ref().on('child_added', function (snapshot) {
+  console.log(snapshot.val().name);
+  console.log(snapshot.val().time);
   // function add(snapshot.val().name) {
   //     let listOfNames = []; 
   //     for(let i=0; i<listOfNames; i++)
