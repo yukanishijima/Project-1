@@ -105,8 +105,6 @@ $(".backBtn").on("click", function (event) {
 // Function for Sound
 var audio = document.getElementById("audio");
 function playSound() {
-
-
   audio.loop = true;
   audio.play();
 }
@@ -115,7 +113,7 @@ function stopSound() {
 }
 var gong = document.getElementById("allDone")
 function finished() {
-  audio.play();
+  gong.play();
 }
 
 //Functions for Play,Pause, Stop
@@ -150,6 +148,7 @@ $(".BeginBtn").on("click", function () {
 $(".stopBtn").on("click", function () {
   stop();
   stopSound();
+  finished();
 })
 
 //pause button
