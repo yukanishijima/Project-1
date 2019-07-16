@@ -63,17 +63,6 @@
             <button val="1" id="minuteBtn1">1 Min</button>
             <button val="5" id="minuteBtn2">5 Mins</button>
             <button val="10" id="minuteBtn3">10 Mins</button>
-            <button id="customizeBtn">Customize</button>
-
-            <form id="customizeTime">
-              <input class="form-control" id="hour">
-              <label for="hour">Hour</label>
-              <input class="form-control" id="minute">
-              <label for="minute">Minute</label>
-              <input class="form-control" id="second">
-              <label for="second">Second</label>
-              <input type="submit" value="Submit" id="submitBtn" class="btn btn-primary">
-            </form>
           </div>
 
           <div class="modal-footer">
@@ -88,8 +77,9 @@
     <div id="userChart">
 
       <h2>All done! Let's see how mindful everyone has been...</h2>
-
-      <canvas id="myChart"></canvas>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
 
     </div>
 
@@ -136,7 +126,7 @@
       <h3 class="weatherTittle">Check Here To See If You Can <br> Meditate Outside!</h3>
       <form id="location-form">
         <label for="location-input">Enter current City</label>
-        <input type="text" id="location-input">
+        <input type="text" id="location-input" placeholder="Toronto, CA">
 
         <!-- Button triggers new city  to be added -->
         <input id="add-city" type="submit" value="Submit">
