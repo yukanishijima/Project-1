@@ -1,5 +1,6 @@
 $(document).ready(function () {
   $("#welcomeModal").modal("show");
+  $("#userChart").hide();
 });
 
 // Your web app's Firebase configuration
@@ -48,7 +49,6 @@ $("#startBtn").on("click", function () {
   if (userName.length !== 0) {
     $("#timerModal").modal("show");
     $("#welcomeModal").modal("hide");
-    $("#customizeTime").hide();
     $("#modalMsg").html("<p>Welcome " + userName + ", select a time!</p>");
   }
 });
@@ -145,6 +145,7 @@ function decrement() {
     $("#mainSection").hide();
     $(".preWeatherinfo").hide();
     $("#userChart").show();
+    $("#myChart").destroy();
   }
 }
 
@@ -263,7 +264,7 @@ function buildChart() {
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero: false,
+            beginAtZero: true,
           },
           scaleLabel: {
             display: true,
@@ -276,6 +277,11 @@ function buildChart() {
             labelString: 'Name'
           }
         }]
+      }
+    },
+    plugins: {
+      zoom: {
+        enabled: false,
       }
     }
   });
