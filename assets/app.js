@@ -116,6 +116,7 @@ function stopSound() {
 }
 var gong = document.getElementById("allDone")
 function finished() {
+
   gong.play();
 }
 
@@ -138,6 +139,7 @@ function decrement() {
   if (number === 0) {
     stop();
     stopSound();
+    finished();
     $(".quote-div").hide();
     $("#quoteButton").hide();
     $("#mainSection").hide();
@@ -250,7 +252,7 @@ function buildChart() {
     data: {
       labels: listOfNames,
       datasets: [{
-        label: 'Time Spent Mindless',
+        label: 'Time Spent Mindful', 
         data: listOfValues,
         fill: false,
         backgroundColor: "light-grey",
