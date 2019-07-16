@@ -145,7 +145,6 @@ function decrement() {
     $("#mainSection").hide();
     $(".preWeatherinfo").hide();
     $("#userChart").show();
-    $("#myChart").destroy();
   }
 }
 
