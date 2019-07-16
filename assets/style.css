@@ -70,9 +70,14 @@ i{
     font-family: 'Poiret One', cursive;
     /* background:#43484c85; */
 }
+#refresh{
+  color: black;
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 30px;
+}
 
 #copyright {
-  color:rgba(55, 71, 79,0.88);
+  color:#ffffffa3;
 }
 
   /* modal styles
