@@ -32,7 +32,7 @@ i{
    opacity: 0.7;
 }
 .preWeatherinfo{
-  opacity: 0.2;
+  opacity: 0.5;
 }
 .weatherTittle{
     margin-left: 60px;
@@ -77,16 +77,26 @@ i{
 
   /* modal styles
 ----------------------------------------------- */
-#welcomeModal, #timerModal{
+#welcomeModal, #timerModal, {
  background-color: rgba(55, 71, 79,0.88);
 }
-.modal-content {
+.modal-content{
     text-align: center;
     padding: 30px;
     font-family: 'Cormorant Garamond', serif;
     margin-top: 250px;
   }
+  #userChart{
+    background-color:#f5f5f591;
+    text-align: center;
 
+  }
+  #myChart{
+    padding: 90px;
+  }
+h2{
+  font-family: 'Poiret One', cursive;
+}
   .modal-title p {
     margin: 0;
   }
