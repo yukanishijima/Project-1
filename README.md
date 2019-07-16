@@ -3,7 +3,7 @@
 ## App Name: 
 Mindful on the Go! 
 
-### Link to Live App: 
+### Link to Live App: https://yukanishijima.github.io/Project-1/
 
 ## App Objective:
 Create a app for users to be mindful anywhere they go! 
